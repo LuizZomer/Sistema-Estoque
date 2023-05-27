@@ -53,7 +53,7 @@ def visualizacao(estoque):
 
 
 def reverso(var):
-    print(f'Deseja mostrar o {var} em ordem crescente\n1 - Sim\n2 - Não')
+    print(f'Em que ordem deseja mostrar o {var}?\n1 - Crescente\n2 - Decrescente')
     while True:
         try:
             escolhatxt = input('Selecione a opção: ')
@@ -66,3 +66,18 @@ def reverso(var):
                 return True
         except (ValueError, TypeError):
             print('Esse valor não é um numero inteiro')
+
+
+def adicionar():
+    produto = {}
+    produto.clear()
+    titulo('Cadastro de produtos')
+    produto['nome'] = input('Nome do produto: ')
+    while True:
+        try:
+            produto['preco'] = float(input('Preço do produto: '))
+            break
+        except (ValueError, TypeError):
+            print('Impossivel anexar esse preço ao produto')
+    print(f'O produto {produto["nome"]} foi cadastrado com sucesso.')
+    return produto

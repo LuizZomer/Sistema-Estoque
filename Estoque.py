@@ -1,8 +1,6 @@
 from time import sleep
 import functions
 
-produto = {}
-
 estoque = []
 
 while True:
@@ -24,17 +22,8 @@ while True:
             else:
                 functions.visualizacao(estoque)
         case 2:
-            functions.titulo('Cadastro de produtos')
-            produto['nome'] = input('Nome do produto: ')
-            while True:
-                try:
-                    produto['preco'] = float(input('Preço do produto: '))
-                    break
-                except (ValueError, TypeError):
-                    print('Impossivel anexar esse preço ao produto')
-            print(f'O produto {produto["nome"]} foi cadastrado com sucesso.')
+            produto = functions.adicionar()
             estoque.append(produto.copy())
-            produto.clear()
             sleep(1)
         case 3:
             deletartxt = input('Escolha o numero do produto para excluir: ')
