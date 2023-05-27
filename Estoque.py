@@ -4,15 +4,7 @@ import functions
 estoque = []
 
 while True:
-    functions.titulo('estoque')
-    print('1 - visualizar estoque\n2 - cadastrar produtos\n3 - apagar produtos\n4 = Sair do programa')
-    opcaotxt = input('Escolha uma opção: ')
-    try:
-        opcao = int(opcaotxt)
-    except ValueError:
-        print('Valor invalido')
-        sleep(1)
-        continue    
+    opcao = functions.menu() 
     match opcao:
         case 1:
             functions.titulo('Visualização do estoque')
@@ -26,17 +18,10 @@ while True:
             estoque.append(produto.copy())
             sleep(1)
         case 3:
-            deletartxt = input('Escolha o numero do produto para excluir: ')
-            try:
-                deletar = int(deletartxt)
-            except ValueError:
-                print('Valor incorreto')
-            if deletar > len(estoque)-1:
-                print('Numero inxistente')
-            else:
-                print(f'O produtos {estoque[deletar]["nome"]} foi apagado com sucesso')
-                estoque.pop(deletar)
-                sleep(1)
+            delete = functions.deletar(estoque)
+            print(f'O produtos {estoque[delete]["nome"]} foi apagado com sucesso')
+            estoque.pop(delete)
+            sleep(1)
         case 4:
             print('Saindo do programa...')
             break

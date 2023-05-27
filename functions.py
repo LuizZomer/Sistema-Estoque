@@ -6,6 +6,19 @@ def titulo(msg):
     print('='*40)
 
 
+def menu():
+    titulo('estoque')
+    print('1 - visualizar estoque\n2 - cadastrar produtos\n3 - apagar produtos\n4 = Sair do programa')
+    while True:
+        try:
+            opcaotxt = input('Escolha uma opção: ')
+            opcao = int(opcaotxt)
+            return opcao
+        except ValueError:
+            print('Valor invalido')
+            sleep(1)
+
+
 def cabecalho():
     print(f'{"nº":<1} |   {"Nome":^5}  |  {"preço":>1}')
 
@@ -81,3 +94,16 @@ def adicionar():
             print('Impossivel anexar esse preço ao produto')
     print(f'O produto {produto["nome"]} foi cadastrado com sucesso.')
     return produto
+
+
+def deletar(estoque):
+    while True:
+        try:
+            deletartxt = input('Escolha o numero do produto para excluir: ')
+            deletar = int(deletartxt)
+        except ValueError:
+            print('Valor incorreto')
+        if deletar > len(estoque)-1:
+            print('Numero inxistente')
+        else:
+            return deletar
