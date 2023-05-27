@@ -4,7 +4,8 @@ import functions
 estoque = []
 
 while True:
-    opcao = functions.menu() 
+    opcao = functions.menu()
+ 
     match opcao:
         case 1:
             functions.titulo('Visualização do estoque')

@@ -98,12 +98,17 @@ def adicionar():
 
 def deletar(estoque):
     while True:
+        if len(estoque) == 1: 
+            print(f'0 é o unico numero disponivel')
+        else:
+            print(f'Os numeros disponiveis são de 0 a {len(estoque)-1}')
         try:
             deletartxt = input('Escolha o numero do produto para excluir: ')
             deletar = int(deletartxt)
+            if deletar > len(estoque)-1:
+                print('Numero inxistente')
+            else:
+                return deletar
         except ValueError:
             print('Valor incorreto')
-        if deletar > len(estoque)-1:
-            print('Numero inxistente')
-        else:
-            return deletar
+        
