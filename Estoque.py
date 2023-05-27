@@ -1,4 +1,5 @@
 from time import sleep
+from sys import exit
 import functions
 
 estoque = []
@@ -25,7 +26,7 @@ while True:
             sleep(1)
         case 4:
             print('Saindo do programa...')
-            break
+            exit()
         case _:
             print('Opção invalida')
             sleep(1)
